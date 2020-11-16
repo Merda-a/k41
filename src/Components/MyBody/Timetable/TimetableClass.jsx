@@ -83,12 +83,10 @@ const TimetableFormRedux = (props) => {
             </div>
          </div>
          <button className={classes.button}>Расписание</button>
-
          <div>
             <div>
                <NavLink to="/ListOfDisciplines" >Дисциплины кафедры</NavLink>
             </div>
-
          </div>
       </form>
    );

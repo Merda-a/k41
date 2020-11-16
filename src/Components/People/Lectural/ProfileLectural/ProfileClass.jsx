@@ -1,22 +1,22 @@
 import React from 'react'
 import * as axios from 'axios'
-import {Profile} from './Profile'
+import { Profile } from './Profile'
 
 
 export class ProfileClass extends React.Component {
-    
-    getProfile(props) {
-        let id = this.props.match.params.id;
-         this.props.getUserbyId(id);
-     }
- 
-     componentDidMount() {         
-         let id = this.props.match.params.id;
-         this.props.getUserbyId(id);
-     }
+
+   getProfile(props) {
+      let id = this.props.match.params.id;
+      this.props.getUserbyId(id);
+   }
+
+   componentDidMount() {
+      let id = this.props.match.params.id;
+      this.props.getUserbyId(id);
+   }
 
 
-    render() {
-        return (<Profile {...this.props} ></Profile>);
-    }
+   render() {
+      return (<Profile {...this.props} ></Profile>);
+   }
 }

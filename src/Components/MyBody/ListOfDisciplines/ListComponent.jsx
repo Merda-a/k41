@@ -1,30 +1,30 @@
 
-import { setDataAC, getTimetableThunkCreator } from '../../../Redux/timetable-reduser';
+import { setListAC, getUserbyIdThunkCreator } from '../../../Redux/list-reduser';
 import { ListOfDisciplines } from './ListClass';
 import { connect } from 'react-redux';
-import { getUserInfoThunkCreator } from '../../../Redux/login-reduser';
+import { withRouter } from 'react-router-dom';
 
 
 let maptoStateToProps = (state) => {
-
+   console.log(state);
    return {
-      timetable: state.timetableReduser.timetablePage.timetable,
-      user: state.LoginReduser
+      ListOfDisciplinesPage: state.ListReduser.ListOfDisciplines
    }
 }
+
 let mapDispatchToProps = (dispatch) => {
    return {
-      setData: (data) => {
-         dispatch(setDataAC(data));
+      setList: (ListOfDisciplinesPage) => {
+         dispatch(setListAC(ListOfDisciplinesPage));
       },
-      getUser: () => {
-         dispatch(getUserInfoThunkCreator());
-      },
-      getTimetable: (group, dateTime) => {
-         dispatch(getTimetableThunkCreator(group, dateTime));
+      getUserbyId: (id) => {
+         dispatch(getUserbyIdThunkCreator(id));
       }
    }
 }
-const ListComponent = connect(maptoStateToProps, mapDispatchToProps)(ListOfDisciplines);
 
-export default ListComponent;
+let WithURL = withRouter(ListOfDisciplines);
+
+export default connect(maptoStateToProps, mapDispatchToProps)(WithURL);
+
+
