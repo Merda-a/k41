@@ -19,3 +19,5 @@
 [1108/101943.201:ERROR:exception_snapshot_win.cc(99)] thread ID 12680 not found in process
 [1108/101943.201:ERROR:exception_snapshot_win.cc(99)] thread ID 14628 not found in process
 [1108/101943.201:ERROR:exception_snapshot_win.cc(99)] thread ID 9864 not found in process
+[1117/195513.658:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
+[1125/180109.785:ERROR:directory_reader_win.cc(43)] FindFirstFile: Системе не удается найти указанный путь. (0x3)
