@@ -5,31 +5,31 @@ import MyNew from './MyNew/MyNew';
 
 
 const MyNews = (props) => {
-  
-  let newPostElement = React.createRef();
 
-  let AllNews = props.allNews.map((n) => { return <MyNew message={n.newM} /> });
+   let newPostElement = React.createRef();
 
-  let AddCallBack = () => {
-    props.addNews();
-  }
-  let ChangeCallBack = () => {
-    let Text = newPostElement.current.value;
-    props.changeText(Text);
-  }
-  debugger;
-  return (
-    <div>
-      <div className={classes.MyNews}>
-        <div>My News</div>
-        <textarea onChange={ChangeCallBack} ref={newPostElement} value={props.value}></textarea>
-        <button onClick={AddCallBack}>Add News</button>
+   let AllNews = props.allNews.map((n) => { return <MyNew message={n.newM} /> });
+
+   let AddCallBack = () => {
+      props.addNews();
+   }
+   let ChangeCallBack = () => {
+      let Text = newPostElement.current.value;
+      props.changeText(Text);
+   }
+
+   return (
+      <div>
+         <div className={classes.MyNews}>
+            <div>My News</div>
+            <textarea onChange={ChangeCallBack} ref={newPostElement} value={props.value}></textarea>
+            <button onClick={AddCallBack}>Add News</button>
+         </div>
+         <div className={classes.News}>
+            {AllNews}
+         </div>
       </div>
-      <div className={classes.News}>
-        {AllNews}
-      </div>
-    </div>
-  );
+   );
 }
 
 export default MyNews;

@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 
 export const ListOfDisciplines = (props) => {
+
    console.log(props);
    return (
       <div key={props.ListOfDisciplinesPage.id}>

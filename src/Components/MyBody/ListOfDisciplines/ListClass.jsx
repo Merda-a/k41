@@ -2,15 +2,13 @@ import React from 'react';
 import classes from './List.module.css';
 import { reduxForm, Field } from 'redux-form';
 import { NavLink } from 'react-router-dom';
+import { ListOfDisciplines } from './ListOfDisciplines';
+import { Homework } from '../Homework/HomeClass';
 
-export class ListOfDisciplines extends React.Component {
 
-   getList(props) {
-      let id = this.props.match.params.id;
-      this.props.getUserbyId(id);
-   }
+export class ListClass extends React.Component {
 
-   componentDidMount() {
+   getListOfDisciplines(props) {
       let id = this.props.match.params.id;
       this.props.getUserbyId(id);
    }
@@ -18,8 +16,9 @@ export class ListOfDisciplines extends React.Component {
    render() {
       return (
          <div>
+            <ListReduxForm onSubmit={this.submit} role={this.props.user.ListClass} />
             <ListOfDisciplines {...this.props} />
-            <ListReduxForm onSubmit={this.submit} role={this.props.user.ListOfDisciplines} />
+            <Homework />
          </div>
       );
    }
@@ -27,33 +26,12 @@ export class ListOfDisciplines extends React.Component {
 }
 
 
-
-
 const ListFormRedux = (props) => {
 
    return (
-      <form onSubmit={props.handleSubmit}>
-         <div className={classes.Book}>
-            <div className={classes.imgBook}>
-               <NavLink to="/Homework">Предмет 1</NavLink>
-            </div>
-            <div className={classes.imgBook1}>
-               <NavLink to="/Homework1">Предмет 2</NavLink>
-            </div>
-            <div className={classes.imgBook2}>
-               <NavLink to="/Homework2">Предмет 3</NavLink>
-            </div>
-            <div className={classes.imgBook3}>
-               <NavLink to="/Homework3">Предмет 4</NavLink>
-            </div>
-            <div className={classes.imgBook4}>
-               <NavLink to="/Homework4">Предмет 5</NavLink>
-            </div>
-            <div className={classes.imgBook5}>
-               <NavLink to="/Homework5">Предмет 6</NavLink>
-            </div>
-         </div>
-      </form>
+      <div>
+         <NavLink to="/Homework" >Дисциплины кафедры</NavLink>
+      </div>
    );
 }
 

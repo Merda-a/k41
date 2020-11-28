@@ -1,6 +1,6 @@
 
 import { setListAC, getUserbyIdThunkCreator } from '../../../Redux/list-reduser';
-import { ListOfDisciplines } from './ListClass';
+import { ListClass } from './ListClass';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
@@ -8,14 +8,14 @@ import { withRouter } from 'react-router-dom';
 let maptoStateToProps = (state) => {
    console.log(state);
    return {
-      ListOfDisciplinesPage: state.ListReduser.ListOfDisciplines
+      ListPage: state.ListReduser.ListPage
    }
 }
 
 let mapDispatchToProps = (dispatch) => {
    return {
-      setList: (ListOfDisciplinesPage) => {
-         dispatch(setListAC(ListOfDisciplinesPage));
+      setList: (ListPage) => {
+         dispatch(setListAC(ListPage));
       },
       getUserbyId: (id) => {
          dispatch(getUserbyIdThunkCreator(id));
@@ -23,7 +23,7 @@ let mapDispatchToProps = (dispatch) => {
    }
 }
 
-let WithURL = withRouter(ListOfDisciplines);
+let WithURL = withRouter(ListClass);
 
 export default connect(maptoStateToProps, mapDispatchToProps)(WithURL);
 
