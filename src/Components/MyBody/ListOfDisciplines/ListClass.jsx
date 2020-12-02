@@ -1,21 +1,25 @@
 import React from 'react';
-import classes from './List.module.css'
 import { reduxForm } from 'redux-form';
+import { ListOfDisciplines } from './ListOfDisciplines'
 import { NavLink } from 'react-router-dom';
+import classes from './List.module.css'
 
 
+export class ListClass extends React.Component {
 
+   getList(props) {
+      let id = this.props.match.params.id;
+      this.props.getUserbyId(id);
+   }
 
-export class ListOfDisciplines extends React.Component {
    render() {
       return (
          <div>
-            <ListReduxForm onSubmit={this.submit} role={this.props.user.profile} />
-         </div>
-      )
+            <ListOfDisciplines {...this.props} />
+            <ListReduxForm onSubmit={this.submit} role={this.props.user.list} />
+         </div>)
    }
 }
-
 
 const ListFormRedux = (props) => {
 
@@ -41,16 +45,12 @@ const ListFormRedux = (props) => {
                <NavLink to="/Homework5">Предмет 6</NavLink>
             </div>
          </div>
-
-
-
       </form >
    );
 }
 
-
-
 const ListReduxForm = reduxForm({
    form: 'group'
 })(ListFormRedux)
+
 
